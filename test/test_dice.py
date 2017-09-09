@@ -4,12 +4,12 @@ from monopoly import Dice
 
 class TestDice(unittest.TestCase):
 
-    def testOneSidedDice(self):
-        self.assertEqual(Dice([1]).roll(), 1)
-        self.assertEqual(Dice([1, 1]).roll(), 2)
-        self.assertEqual(Dice([1, 1, 1]).roll(), 3)
+    def test_one_sided_dice(self):
+        self.assertEqual(sum(Dice([1]).roll()), 1)
+        self.assertEqual(sum(Dice([1, 1]).roll()), 2)
+        self.assertEqual(sum(Dice([1, 1, 1]).roll()), 3)
 
-    def testRoll(self):
+    def test_roll(self):
 
         ROLLS = 10**5
 
@@ -25,7 +25,7 @@ class TestDice(unittest.TestCase):
             dice = Dice(dice_sides)
 
             for i in range(ROLLS):
-                rolls.add(dice.roll())
+                rolls.add(sum(dice.roll()))
 
             self.assertEqual(
                 rolls,

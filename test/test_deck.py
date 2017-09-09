@@ -5,7 +5,7 @@ import random
 
 class TestDice(unittest.TestCase):
 
-    def testRoll(self):
+    def test_draw(self):
         cards = [random.randint(0, 100) for i in range(50)]
         deck = Deck(cards)
 
